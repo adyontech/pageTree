@@ -6,7 +6,13 @@ const RenderPageChild = ({ data }) => {
   return (
     <div>
       {data.children ? (
-        <div key={data.id} onClick={() => setIsOpen(!isOpen)}>
+        <div
+          key={data.id}
+          onClick={() => {
+            e.stoppropagation();
+            setIsOpen(!isOpen);
+          }}
+        >
           <p>
             {isOpen ? <span> ▼ </span> : <span> ▶ </span>}
             {data.name}
